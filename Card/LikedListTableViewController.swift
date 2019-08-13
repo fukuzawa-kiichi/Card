@@ -32,6 +32,10 @@ class LikedListTableViewController: UITableViewController {
         // いいねされたユーザーの数
         return likedName.count
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
 
     // 必須:セルの設定
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,7 +48,7 @@ class LikedListTableViewController: UITableViewController {
         // いいねされた人の出身地
         cell.personBirth.text = likedNameBirth[indexPath.row]
         // いいねされた人の写真
-   /*     cell.picture.image = UIImage(contentsOfFile: likedName[indexPath.row]) */
+        cell.picture.image = UIImage(named: likedName[indexPath.row])
         return cell
     }
 

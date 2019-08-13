@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ユーザーリスト-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Card" customModuleProvider="target" sceneMemberID="viewController">
@@ -306,7 +306,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OAo-se-P3x"/>
+                    <navigationItem key="navigationItem" title="ユーザーリスト" id="OAo-se-P3x"/>
                     <connections>
                         <outlet property="baseCard" destination="KFX-1B-6vk" id="kN8-3M-3dm"/>
                         <outlet property="likeImage" destination="Njy-qQ-WMP" id="BEp-4f-DE6"/>
@@ -316,6 +316,7 @@
                         <outlet property="person4" destination="zuF-6g-1Pp" id="D8N-UN-vXe"/>
                         <outlet property="person5" destination="Me7-7N-lAE" id="zLB-ia-IXM"/>
                         <segue destination="HJZ-Rr-xTd" kind="show" identifier="ToLikedList" id="e2h-Zu-Eti"/>
+                        <segue destination="5Xv-UN-35H" kind="show" identifier="gotoNothing" id="hK9-tX-zub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -327,7 +328,7 @@
             </objects>
             <point key="canvasLocation" x="786.95652173913049" y="37.5"/>
         </scene>
-        <!--Liked List Table View Controller-->
+        <!--いいね!した人-->
         <scene sceneID="QKr-Fj-0XI">
             <objects>
                 <tableViewController id="HJZ-Rr-xTd" customClass="LikedListTableViewController" customModule="Card" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,13 +351,53 @@
                             <outlet property="delegate" destination="HJZ-Rr-xTd" id="lq4-tU-cgG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="いいね!した人" id="0q4-3v-8Gd"/>
                     <connections>
                         <outlet property="infoList" destination="qP3-xU-0Dx" id="0hf-Us-VVh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMe-KE-aho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628.985507246377" y="35.491071428571423"/>
+            <point key="canvasLocation" x="1723" y="-558"/>
+        </scene>
+        <!--いいね!した人-->
+        <scene sceneID="DpP-cF-KbM">
+            <objects>
+                <viewController id="5Xv-UN-35H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nfh-IC-ljb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nouser" translatesAutoresizingMaskIntoConstraints="NO" id="wcX-e5-pZV">
+                                <rect key="frame" x="64" y="164" width="192" height="192"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwv-uP-hDf">
+                                <rect key="frame" x="10" y="366" width="300" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="LPv-8F-Xdw"/>
+                                </constraints>
+                                <string key="text">まだいいね!した人がいません
+
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wcX-e5-pZV" firstAttribute="centerX" secondItem="Nfh-IC-ljb" secondAttribute="centerX" id="cjT-SE-spb"/>
+                            <constraint firstItem="Xwv-uP-hDf" firstAttribute="top" secondItem="wcX-e5-pZV" secondAttribute="bottom" constant="10" id="ksX-hh-rKk"/>
+                            <constraint firstItem="wcX-e5-pZV" firstAttribute="top" secondItem="YSf-b0-ldf" secondAttribute="top" constant="100" id="mUS-Xz-1fo"/>
+                            <constraint firstItem="Xwv-uP-hDf" firstAttribute="centerX" secondItem="Nfh-IC-ljb" secondAttribute="centerX" id="pNA-ca-3iW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YSf-b0-ldf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="いいね!した人" id="MDS-EM-UwZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4E9-Mp-Fpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1721" y="570"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hzP-sD-MWY">
@@ -378,6 +419,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nouser" width="192" height="192"/>
         <image name="ガリレオガリレイ" width="400" height="398"/>
         <image name="ジョン万次郎" width="353" height="400"/>
         <image name="ジョージワシントン" width="349" height="400"/>

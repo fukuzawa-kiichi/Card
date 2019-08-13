@@ -151,9 +151,12 @@ class ViewController: UIViewController {
                 // 次のカードへ
                 selectedCardCount += 1
 
-                if selectedCardCount >= personList.count {
+                if selectedCardCount >= personList.count && likedName != [] {
                     // 遷移処理
                     performSegue(withIdentifier: "ToLikedList", sender: self)
+                
+                }else if selectedCardCount >= personList.count && likedName == [] {
+                     performSegue(withIdentifier: "gotoNothing", sender: self)
                 }
 
             } else if card.center.x > self.view.frame.width - 50 {
