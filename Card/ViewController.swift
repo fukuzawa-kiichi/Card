@@ -28,9 +28,17 @@ class ViewController: UIViewController {
     // 選択されたカードの数
     var selectedCardCount: Int = 0
     // ユーザーリスト
-    let nameList: [String] = ["津田梅子","ジョージワシントン","ガリレオガリレイ","板垣退助","ジョン万次郎"]
+    let info: [[String]] = [["津田梅子","教師","千葉"],
+                            ["ガリレオガリレイ","物理学者","イタリア"],
+                            ["ジョージワシントン","大統領","アメリカ"],
+                            ["板垣退助","議員","高知"],
+                            ["ジョン万次郎","冒険家","アメリカ"]]
     // 「いいね」をされた名前の配列
     var likedName: [String] = []
+    // 「いいね」をされた人の職業の配列
+    var likedNameJob: [String] = []
+    // 「いいね」をされた人の出身地の配列
+    var likedNameBirth: [String] = []
 
 
     // viewのレイアウト処理が完了した時に呼ばれる
@@ -56,6 +64,8 @@ class ViewController: UIViewController {
         selectedCardCount = 0
         // リスト初期化
         likedName = []
+        likedNameJob = []
+        likedNameBirth = []
     }
 
     // セグエによる遷移前に呼ばれる
@@ -66,6 +76,8 @@ class ViewController: UIViewController {
 
             // LikedListTableViewControllerのlikedName(左)にViewCountrollewのLikedName(右)を代入
             vc.likedName = likedName
+            vc.likedNameJob = likedNameJob
+            vc.likedNameBirth = likedNameBirth
         }
     }
 
@@ -139,9 +151,13 @@ class ViewController: UIViewController {
                 // 次のカードへ
                 selectedCardCount += 1
 
-                if selectedCardCount >= personList.count {
+                if selectedCardCount >= personList.count && likedName != [] {
                     // 遷移処理
                     performSegue(withIdentifier: "ToLikedList", sender: self)
+                // いいねした人がいないとき
+                }else if selectedCardCount >= personList.count && likedName == [] {
+                    // からのページに飛ぶ
+                     performSegue(withIdentifier: "gotoNothing", sender: self)
                 }
 
             } else if card.center.x > self.view.frame.width - 50 {
@@ -157,7 +173,9 @@ class ViewController: UIViewController {
                 // likeImageを隠す
                 likeImage.isHidden = true
                 // いいねリストに追加
-                likedName.append(nameList[selectedCardCount])
+                likedName.append(info[selectedCardCount][0])
+                likedNameJob.append(info[selectedCardCount][1])
+                likedNameBirth.append(info[selectedCardCount][2])
                 // 次のカードへ
                 selectedCardCount += 1
                 
@@ -194,8 +212,12 @@ class ViewController: UIViewController {
 
         selectedCardCount += 1
         // 画面遷移
-        if selectedCardCount >= personList.count {
+        if selectedCardCount >= personList.count && likedName != [] {
             performSegue(withIdentifier: "ToLikedList", sender: self)
+        // いいねした人がいないとき
+        }else if selectedCardCount >= personList.count && likedName == [] {
+            // からのページに飛ぶ
+            performSegue(withIdentifier: "gotoNothing", sender: self)
         }
     }
 
@@ -207,7 +229,9 @@ class ViewController: UIViewController {
             self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x + 500, y:self.personList[self.selectedCardCount].center.y)
         })
         // いいねリストに追加
-        likedName.append(nameList[selectedCardCount])
+        likedName.append(info[selectedCardCount][0])
+        likedNameJob.append(info[selectedCardCount][1])
+        likedNameBirth.append(info[selectedCardCount][2])
         selectedCardCount += 1
         // 画面遷移
         if selectedCardCount >= personList.count {
