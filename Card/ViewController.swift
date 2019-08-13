@@ -154,8 +154,9 @@ class ViewController: UIViewController {
                 if selectedCardCount >= personList.count && likedName != [] {
                     // 遷移処理
                     performSegue(withIdentifier: "ToLikedList", sender: self)
-                
+                // いいねした人がいないとき
                 }else if selectedCardCount >= personList.count && likedName == [] {
+                    // からのページに飛ぶ
                      performSegue(withIdentifier: "gotoNothing", sender: self)
                 }
 
@@ -211,8 +212,12 @@ class ViewController: UIViewController {
 
         selectedCardCount += 1
         // 画面遷移
-        if selectedCardCount >= personList.count {
+        if selectedCardCount >= personList.count && likedName != [] {
             performSegue(withIdentifier: "ToLikedList", sender: self)
+        // いいねした人がいないとき
+        }else if selectedCardCount >= personList.count && likedName == [] {
+            // からのページに飛ぶ
+            performSegue(withIdentifier: "gotoNothing", sender: self)
         }
     }
 
