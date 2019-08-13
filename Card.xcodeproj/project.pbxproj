@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C17F8DF52302922C001FC793 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F8DF32302922C001FC793 /* TableViewCell.swift */; };
+		C17F8DF62302922C001FC793 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17F8DF42302922C001FC793 /* TableViewCell.xib */; };
 		DD8AFB7722FE43A6005AFD25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AFB7622FE43A6005AFD25 /* AppDelegate.swift */; };
 		DD8AFB7922FE43A6005AFD25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AFB7822FE43A6005AFD25 /* ViewController.swift */; };
 		DD8AFB7C22FE43A6005AFD25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8AFB7A22FE43A6005AFD25 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C17F8DF32302922C001FC793 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C17F8DF42302922C001FC793 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		DD8AFB7322FE43A6005AFD25 /* Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8AFB7622FE43A6005AFD25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8AFB7822FE43A6005AFD25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				DD8AFB7A22FE43A6005AFD25 /* Main.storyboard */,
 				DD8AFB8822FE9262005AFD25 /* LikedListTableViewController.swift */,
 				DD8AFB7D22FE43A7005AFD25 /* Assets.xcassets */,
+				C17F8DF32302922C001FC793 /* TableViewCell.swift */,
+				C17F8DF42302922C001FC793 /* TableViewCell.xib */,
 				DD8AFB7F22FE43A7005AFD25 /* LaunchScreen.storyboard */,
 				DD8AFB8222FE43A7005AFD25 /* Info.plist */,
 			);
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8AFB8122FE43A7005AFD25 /* LaunchScreen.storyboard in Resources */,
+				C17F8DF62302922C001FC793 /* TableViewCell.xib in Resources */,
 				DD8AFB7E22FE43A7005AFD25 /* Assets.xcassets in Resources */,
 				DD8AFB7C22FE43A6005AFD25 /* Main.storyboard in Resources */,
 			);
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8AFB8922FE9262005AFD25 /* LikedListTableViewController.swift in Sources */,
+				C17F8DF52302922C001FC793 /* TableViewCell.swift in Sources */,
 				DD8AFB7922FE43A6005AFD25 /* ViewController.swift in Sources */,
 				DD8AFB7722FE43A6005AFD25 /* AppDelegate.swift in Sources */,
 			);
@@ -287,7 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Y284RH96R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Card/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -296,7 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = project.Card;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,7 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Y284RH96R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Card/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = project.Card;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

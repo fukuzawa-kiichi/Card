@@ -12,9 +12,17 @@ class LikedListTableViewController: UITableViewController {
 
     // いいね」された名前の一覧
     var likedName: [String] = []
+    // 「いいね」をされた人の職業の配列
+    var likedNameJob: [String] = []
+    // 「いいね」をされた人の出身地の配列
+    var likedNameBirth: [String] = []
 
+    @IBOutlet weak var infoList: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       infoList.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
     }
 
     // MARK: - Table view data source
@@ -27,10 +35,16 @@ class LikedListTableViewController: UITableViewController {
 
     // 必須:セルの設定
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
 
         // いいねされた名前を表示
-        cell.textLabel?.text = likedName[indexPath.row]
+        cell.personName.text = likedName[indexPath.row]
+        // いいねされた人の職業
+        cell.personJob.text = likedNameJob[indexPath.row]
+        // いいねされた人の出身地
+        cell.personBirth.text = likedNameBirth[indexPath.row]
+        // いいねされた人の写真
+   /*     cell.picture.image = UIImage(contentsOfFile: likedName[indexPath.row]) */
         return cell
     }
 
