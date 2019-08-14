@@ -14,21 +14,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var baseCard: UIView!
     // スワイプ中にgood or bad の表示
     @IBOutlet weak var likeImage: UIImageView!
-    // ユーザーカード
+    // ユーザーカード1
     @IBOutlet weak var person1: UIView!
+    @IBOutlet weak var person1Img: UIImageView!
+    @IBOutlet weak var person1NameLabel: UILabel!
+    @IBOutlet weak var person1JobLabel: UILabel!
+    @IBOutlet weak var person1BirthLabel: UILabel!
+    // ユーサーカード2
     @IBOutlet weak var person2: UIView!
-    @IBOutlet weak var person3: UIView!
-    @IBOutlet weak var person4: UIView!
-    @IBOutlet weak var person5: UIView!
+    @IBOutlet weak var person2Img: UIImageView!
+    @IBOutlet weak var person2NameLabel: UILabel!
+    @IBOutlet weak var person2JobLabel: UILabel!
+    @IBOutlet weak var person2BirthLabel: UILabel!
+    
 
     // ベースカードの中心
     var centerOfCard: CGPoint!
     // ユーザーカードの配列
     var personList: [UIView] = []
-    // 選択されたカードの数
+    // どっちのカードが選択されているか
     var selectedCardCount: Int = 0
+    // 次に表示されてる人のリストの番目
+    var nextUserNum:Int = 2
+    // 現在表示されている人のリストの番号
+    var nowUserNum:Int = 0
     // ユーザーリスト
-    let nameList: [String] = ["津田梅子","ジョージワシントン","ガリレオガリレイ","板垣退助","ジョン万次郎"]
+    let userList: [userData] = [
+        userData(name: "津田梅子", image: #imageLiteral(resourceName: "津田梅子"), job: "教師", birth: "千葉", backColor: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)),
+        userData(name: "ジョージ・ワシントン", image: #imageLiteral(resourceName: "ジョージワシントン"), job: "大統領", birth: "アメリカ", backColor: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)),
+        userData(name: "ガリレオ・ガリレイ", image: #imageLiteral(resourceName: "ガリレオガリレイ"), job: "物理学者", birth: "イタリア", backColor: #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)),
+        userData(name: "板垣退助", image: #imageLiteral(resourceName: "板垣退助"), job: "議員", birth: "高知", backColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)),
+        userData(name: "ジョン万次郎", image: #imageLiteral(resourceName: "ジョン万次郎"), job: "冒険家", birth: "アメリカ", backColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)),
+    ]
     // 「いいね」をされた名前の配列
     var likedName: [String] = []
 
@@ -45,15 +62,14 @@ class ViewController: UIViewController {
         // personListにperson1から5を追加
         personList.append(person1)
         personList.append(person2)
-        personList.append(person3)
-        personList.append(person4)
-        personList.append(person5)
     }
 
     // view表示前に呼ばれる（遷移すると戻ってくる度によばれる）
     override func viewWillAppear(_ animated: Bool) {
         // カウント初期化
         selectedCardCount = 0
+        nextUserNum = 2
+        nowUserNum = 0
         // リスト初期化
         likedName = []
     }
@@ -73,6 +89,12 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         // ユーザーカードを元に戻す
         resetPersonList()
+        // ビューを整理
+        self.view.sendSubviewToBack(person2)
+        // alpha地をもとに戻す
+        person1.alpha = 1
+        person2.alpha = 1
+        // 
     }
 
     func resetPersonList() {
