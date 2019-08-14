@@ -59,21 +59,11 @@ class ViewController: UIViewController {
     // ロード完了時に呼ばれる
     override func viewDidLoad() {
         super.viewDidLoad()
-        // personListにperson1から5を追加
         personList.append(person1)
         personList.append(person2)
     }
 
-    // view表示前に呼ばれる（遷移すると戻ってくる度によばれる）
-    override func viewWillAppear(_ animated: Bool) {
-        // カウント初期化
-        selectedCardCount = 0
-        nextUserNum = 2
-        nowUserNum = 0
-        // リスト初期化
-        likedName = []
-    }
-
+   
     // セグエによる遷移前に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -87,6 +77,13 @@ class ViewController: UIViewController {
 
     // 完全に遷移が行われ、スクリーン上からViewControllerが表示されなくなったときに呼ばれる
     override func viewDidDisappear(_ animated: Bool) {
+        // カウント初期化
+        selectedCardCount = 0
+        nextUserNum = 2
+        nowUserNum = 0
+        // リスト初期化
+        likedName = []
+        
         // ビューを整理
         self.view.sendSubviewToBack(person2)
         // alpha地をもとに戻す
@@ -127,6 +124,7 @@ class ViewController: UIViewController {
         nextUserNum += 1
         if nowUserNum >= userList.count {
             person1.alpha = 0
+            // 画面遷移
             performSegue(withIdentifier: "ToLikedList", sender: self)
         }
         selectedCardCount = nowUserNum % 2
@@ -215,7 +213,7 @@ class ViewController: UIViewController {
                 // likeImageを隠す
                 likeImage.isHidden = true
                 // いいねリストに追加
-                likedName.append(userList[selectedCardCount].name)
+                likedName.append(userList[nowUserNum].name)
                 nextPersonList()
             } else {
                 // アニメーションをつける
@@ -234,7 +232,7 @@ class ViewController: UIViewController {
     }
 
     // よくないねボタン
-    @IBAction func disLikedButtonTapped(_ sender: UIButton) {
+    @IBAction func dislikedButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
             // ユーザーカードを左に飛ばす
             self.skipCard(distance: -500)
@@ -242,10 +240,13 @@ class ViewController: UIViewController {
         // 連打の防止
         sender.isEnabled = false
         // 0.5病後に次のカードを表示
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {self.nextPersonList()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            // 次の画面を表示
+            self.nextPersonList()
             sender.isEnabled = true
         })
     }
+    
     // いいねボタン
     @IBAction func likedButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
@@ -253,11 +254,12 @@ class ViewController: UIViewController {
             self.skipCard(distance: 500)
         })
         // いいねリストに追加
-        likedName.append(userList[selectedCardCount].name)
+        likedName.append(userList[nowUserNum].name)
         // 連打の防止
         sender.isEnabled = false
         // 0.5病後に次のカードを表示
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {self.nextPersonList()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.nextPersonList()
             sender.isEnabled = true
         })
     }

@@ -24,25 +24,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="btb-sc-7vK">
                                         <rect key="frame" x="10" y="10" width="394" height="604"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n9e-Eh-gEq">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ジョージワシントン" translatesAutoresizingMaskIntoConstraints="NO" id="n9e-Eh-gEq">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="302"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-Vx-vYq">
                                                 <rect key="frame" x="0.0" y="302" width="394" height="302"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOw-yY-I27">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジョージ・ワシントン" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOw-yY-I27">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="100.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPz-FW-DQz">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大統領" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPz-FW-DQz">
                                                         <rect key="frame" x="0.0" y="100.5" width="394" height="101"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUW-Xn-Bah">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アメリカ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUW-Xn-Bah">
                                                         <rect key="frame" x="0.0" y="201.5" width="394" height="100.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
@@ -67,25 +67,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Ij-NA-Vxn">
                                         <rect key="frame" x="10" y="10" width="394" height="604"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-Zs-U4e">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="津田梅子" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-Zs-U4e">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="302"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3H4-gX-3x8">
                                                 <rect key="frame" x="0.0" y="302" width="394" height="302"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhZ-10-56D">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="津田梅子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhZ-10-56D">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="100.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6x-tS-d7s">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教師" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6x-tS-d7s">
                                                         <rect key="frame" x="0.0" y="100.5" width="394" height="101"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5p-cK-Lym">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="千葉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5p-cK-Lym">
                                                         <rect key="frame" x="0.0" y="201.5" width="394" height="100.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
@@ -112,8 +112,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="バツ"/>
                                 <connections>
-                                    <action selector="disLikedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oqj-Pc-Q9I"/>
-                                    <action selector="dislikeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z70-D3-m5B"/>
+                                    <action selector="dislikedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1fd-bp-po1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiN-rk-NpW">
@@ -124,8 +123,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="ハート"/>
                                 <connections>
-                                    <action selector="likeButtonTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6U3-2g-t9y"/>
-                                    <action selector="likedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FlA-9O-pA0"/>
+                                    <action selector="likedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cVB-K4-aB0"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFX-1B-6vk">
@@ -178,8 +176,6 @@
                         <outlet property="person2Img" destination="n9e-Eh-gEq" id="Lm6-20-Pfc"/>
                         <outlet property="person2JobLabel" destination="aPz-FW-DQz" id="yFr-cO-Jwp"/>
                         <outlet property="person2NameLabel" destination="hOw-yY-I27" id="9L0-d6-Jaz"/>
-                        <outlet property="person4" destination="zuF-6g-1Pp" id="D8N-UN-vXe"/>
-                        <outlet property="person5" destination="Me7-7N-lAE" id="zLB-ia-IXM"/>
                         <segue destination="HJZ-Rr-xTd" kind="show" identifier="ToLikedList" id="e2h-Zu-Eti"/>
                     </connections>
                 </viewController>
@@ -240,7 +236,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ジョージワシントン" width="349" height="400"/>
         <image name="バツ" width="256" height="256"/>
         <image name="ハート" width="256" height="256"/>
+        <image name="津田梅子" width="373" height="400"/>
     </resources>
 </document>
