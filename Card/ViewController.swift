@@ -118,7 +118,7 @@ class ViewController: UIViewController {
         personList[selectedCardCount].transform = .identity
         // すべて終わったときに画面を真っ白にする
         if nextUserNum < userList.count {
-            
+            selectCard()
         }else {
             person2.alpha = 0
         }
@@ -150,8 +150,12 @@ class ViewController: UIViewController {
             person2Img.image = user.image
         }
     }
-    
-    
+    // カードを飛ばす処理
+    func skipCard(distance: CGFloat) {
+        personList[selectedCardCount].center = CGPoint(x: personList[selectedCardCount].center.x - distance, y: personList[selectedCardCount].center.y)
+        // ベースカードのリセット
+        resetCard()
+    }
     
     // ベースカードを元に戻す
     func resetCard() {
