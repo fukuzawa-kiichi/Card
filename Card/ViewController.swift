@@ -135,6 +135,20 @@ class ViewController: UIViewController {
     // 表示するユーザーカードを決める
     func selectCard() {
         // 表示するカードの名前の保存先
+        let user = userList[nextUserNum]
+        if selectedCardCount == 0 {
+            person1.backgroundColor = user.backColor
+            person1NameLabel.text = user.name
+            person1JobLabel.text = user.job
+            person1BirthLabel.text = user.birth
+            person1Img.image = user.image
+        }else{
+            person2.backgroundColor = user.backColor
+            person2NameLabel.text = user.name
+            person2JobLabel.text = user.job
+            person2BirthLabel.text = user.birth
+            person2Img.image = user.image
+        }
     }
     
     
