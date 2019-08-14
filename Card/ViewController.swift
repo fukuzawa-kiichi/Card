@@ -201,44 +201,22 @@ class ViewController: UIViewController {
                 // 左に大きくスワイプしたときの処理
                 UIView.animate(withDuration: 0.5, animations: {
                     // 左へ飛ばす場合
-                    // X座標を左に500とばす(-500)
-                    self.personList[self.selectedCardCount].center = CGPoint(x: self.personList[self.selectedCardCount].center.x - 500, y :self.personList[self.selectedCardCount].center.y)
-
+                    self.skipCard(distance: -500)
                 })
-                // ベースカードの角度と位置を戻す
-                resetCard()
                 // likeImageを隠す
                 likeImage.isHidden = true
-                // 次のカードへ
-                selectedCardCount += 1
-
-                if selectedCardCount >= personList.count {
-                    // 遷移処理
-                    performSegue(withIdentifier: "ToLikedList", sender: self)
-                }
-
+                nextPersonList()
             } else if card.center.x > self.view.frame.width - 50 {
                 // 右に大きくスワイプしたときの処理
                 UIView.animate(withDuration: 0.5, animations: {
                     // 右へ飛ばす場合
-                    // X座標を右に500とばす(+500)
-                self.personList[self.selectedCardCount].center = CGPoint(x: self.personList[self.selectedCardCount].center.x + 500, y :self.personList[self.selectedCardCount].center.y)
-
+                    self.skipCard(distance: 500)
                 })
-                // ベースカードの角度と位置を戻す
-                resetCard()
                 // likeImageを隠す
                 likeImage.isHidden = true
                 // いいねリストに追加
-                likedName.append(userList[selectedCardCount])
-                // 次のカードへ
-                selectedCardCount += 1
-                
-                if selectedCardCount >= personList.count {
-                    // 遷移処理
-                    performSegue(withIdentifier: "ToLikedList", sender: self)
-                }
-
+                likedName.append(userList[selectedCardCount].name)
+                nextPersonList()
             } else {
                 // アニメーションをつける
                 UIView.animate(withDuration: 0.5, animations: {
@@ -256,28 +234,23 @@ class ViewController: UIViewController {
     }
 
     // よくないねボタン
-    @IBAction func dislikeButtonTapped(_ sender: Any) {
-
+    @IBAction func disLikedButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
-            // ベースカードをリセット
-            self.resetCard()
-            // ユーザーカードを左にとばす
-            self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x - 500, y:self.personList[self.selectedCardCount].center.y)
+            // ユーザーカードを左に飛ばす
+            self.skipCard(distance: -500)
         })
-
-        selectedCardCount += 1
-        // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        // 連打の防止
+        sender.isEnabled = false
+        // 0.5病後に次のカードを表示
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {self.nextPersonList()
+            sender.isEnabled = true
+            
+        })
     }
-
     // いいねボタン
-    @IBAction func likeButtonTaped(_ sender: Any) {
-
+    @IBAction func likedButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
-            self.resetCard()
-            self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x + 500, y:self.personList[self.selectedCardCount].center.y)
+            
         })
         // いいねリストに追加
         likedName.append(userList[selectedCardCount])
