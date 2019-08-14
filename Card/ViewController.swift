@@ -244,21 +244,22 @@ class ViewController: UIViewController {
         // 0.5病後に次のカードを表示
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {self.nextPersonList()
             sender.isEnabled = true
-            
         })
     }
     // いいねボタン
     @IBAction func likedButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
-            
+            // ユーザーカードを右に飛ばす
+            self.skipCard(distance: 500)
         })
         // いいねリストに追加
-        likedName.append(userList[selectedCardCount])
-        selectedCardCount += 1
-        // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        likedName.append(userList[selectedCardCount].name)
+        // 連打の防止
+        sender.isEnabled = false
+        // 0.5病後に次のカードを表示
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {self.nextPersonList()
+            sender.isEnabled = true
+        })
     }
 }
 
