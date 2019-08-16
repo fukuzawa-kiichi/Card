@@ -176,7 +176,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pak-Dh-lhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="GGf-Gr-y8c"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="GGf-Gr-y8c">
+                    <connections>
+                        <action selector="swipeCard:" destination="BtF-t7-Mac" id="3I4-5Y-bk2"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1494.2028985507247" y="33.482142857142854"/>
         </scene>
