@@ -11,16 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     // viewの動作をコントロールする
-    @IBOutlet weak var baseCard: UIView!
     // スワイプ中にgood or bad の表示
-    @IBOutlet weak var likeImage: UIImageView!
-    // ユーザーカード
+    // ユーザーカード1
     @IBOutlet weak var person1: UIView!
+    // ユーザーカード2
     @IBOutlet weak var person2: UIView!
-    @IBOutlet weak var person3: UIView!
-    @IBOutlet weak var person4: UIView!
-    @IBOutlet weak var person5: UIView!
-
+    
     // ベースカードの中心
     var centerOfCard: CGPoint!
     // ユーザーカードの配列
