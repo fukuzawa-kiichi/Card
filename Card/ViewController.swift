@@ -16,8 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var likeImage: UIImageView!
     // ユーザーカード1
     @IBOutlet weak var person1: UIView!
+    @IBOutlet weak var person1Img: UIImageView!
+    @IBOutlet weak var person1NameLabel: UILabel!
+    @IBOutlet weak var person1JobLabel: UILabel!
+    @IBOutlet weak var person1BirthLabel: UILabel!
     // ユーザーカード2
     @IBOutlet weak var person2: UIView!
+    @IBOutlet weak var person2Img: UIImageView!
+    @IBOutlet weak var person2NameLabel: UILabel!
+    @IBOutlet weak var person2JobLabel: UILabel!
+    @IBOutlet weak var person2BirthLabel: UILabel!
     
     // ベースカードの中心
     var centerOfCard: CGPoint!
@@ -60,7 +68,6 @@ class ViewController: UIViewController {
         if segue.identifier == "ToLikedList" {
             let vc = segue.destination as! LikedListTableViewController
             
-            // LikedListTableViewControllerのlikedName(左)にViewCountrollewのLikedName(右)を代入
             vc.likedName = likedName
         }
     }
@@ -74,9 +81,9 @@ class ViewController: UIViewController {
         // リスト初期化
         likedName = []
         
-        // ビューを整理
+        // ビュー2枚目を整理
         self.view.sendSubviewToBack(person2)
-        // alpha地をもとに戻す
+        // alpha値をもとに戻す
         person1.alpha = 1
         person2.alpha = 1
         // ビューの初期化
@@ -96,16 +103,6 @@ class ViewController: UIViewController {
         person2BirthLabel.text = user2.birth
     }
 
-
-    func resetPersonList() {
-        // 5人の飛んで行ったビューを元の位置に戻す
-        for person in personList {
-            // 元に戻す処理
-            person.center = self.centerOfCard
-            person.transform = .identity
-        }
-    }
-
     // ベースカードを元に戻す
     func resetCard() {
         // 位置を戻す
@@ -114,6 +111,24 @@ class ViewController: UIViewController {
         baseCard.transform = .identity
     }
 
+    
+    // カードを飛ばす処理
+    func skipCard(distance: CGFloat) {
+        personList[selectedCardCount].center = CGPoint(x: personList[selectedCardCount].center.x + distance, y: personList[selectedCardCount].center.y)
+        // ベースカードのリセット
+        resetCard()
+    }
+    
+/*    func resetPersonList() {
+        // 5人の飛んで行ったビューを元の位置に戻す
+        for person in personList {
+            // 元に戻す処理
+            person.center = self.centerOfCard
+            person.transform = .identity
+        }
+    }
+*/
+   
     // スワイプ処理
     @IBAction func swipeCard(_ sender: UIPanGestureRecognizer) {
 

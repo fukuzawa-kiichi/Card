@@ -164,7 +164,15 @@
                         <outlet property="baseCard" destination="LIf-ov-RRl" id="nO0-bf-ztp"/>
                         <outlet property="likeImage" destination="zJe-NG-Eq5" id="aYK-k7-moH"/>
                         <outlet property="person1" destination="Vm3-S0-tL6" id="g4o-Ga-B2P"/>
+                        <outlet property="person1BirthLabel" destination="bSk-Vd-k8R" id="taI-IL-bYj"/>
+                        <outlet property="person1Img" destination="aPi-yI-OQ1" id="sxJ-GK-l7G"/>
+                        <outlet property="person1JobLabel" destination="XfN-CV-GPY" id="mEp-XH-I3m"/>
+                        <outlet property="person1NameLabel" destination="Wny-Aq-5ag" id="cgb-Qw-yij"/>
                         <outlet property="person2" destination="LCY-e7-azs" id="l0R-gz-5gE"/>
+                        <outlet property="person2BirthLabel" destination="qhj-2Y-3wD" id="Xea-LT-1io"/>
+                        <outlet property="person2Img" destination="kEd-sc-874" id="Qdj-vc-UYv"/>
+                        <outlet property="person2JobLabel" destination="miZ-8Z-u7j" id="j2r-Ls-3gf"/>
+                        <outlet property="person2NameLabel" destination="vzX-C4-FU7" id="4eA-el-f5f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pak-Dh-lhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
