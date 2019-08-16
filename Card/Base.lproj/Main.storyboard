@@ -53,7 +53,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.81413895960000005" blue="0.84421873690000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.97770712599999998" green="1" blue="0.46895441450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="zVc-y6-sI3" secondAttribute="bottom" constant="10" id="PzT-ca-A3D"/>
                                     <constraint firstItem="zVc-y6-sI3" firstAttribute="leading" secondItem="LCY-e7-azs" secondAttribute="leading" constant="10" id="hcM-Rr-1WW"/>
@@ -179,6 +179,7 @@
                         <outlet property="person2Img" destination="kEd-sc-874" id="Qdj-vc-UYv"/>
                         <outlet property="person2JobLabel" destination="miZ-8Z-u7j" id="j2r-Ls-3gf"/>
                         <outlet property="person2NameLabel" destination="vzX-C4-FU7" id="4eA-el-f5f"/>
+                        <segue destination="HJZ-Rr-xTd" kind="show" identifier="ToLikedList" id="M7B-ZX-Hss"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pak-Dh-lhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
