@@ -247,36 +247,37 @@ class ViewController: UIViewController {
     }
 
     // よくないねボタン
-    @IBAction func dislikeButtonTapped(_ sender: Any) {
-
-        UIView.animate(withDuration: 0.5, animations: {
-            // ベースカードをリセット
-            self.resetCard()
-            // ユーザーカードを左にとばす
-            self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x - 500, y:self.personList[self.selectedCardCount].center.y)
+    @IBAction func dislikedButtonTapped(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.5, animations: {
+        // X座標を左に500とばす(-500)
+        self.skipCard(distance: -500)
         })
-
-        selectedCardCount += 1
-        // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        // 連打の防止
+        sender.isEnabled = false
+        // 0.2秒後に次のカードを表示
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            // 次の画面を表示
+            self.nextPersonList()
+            sender.isEnabled = true
+        })
     }
 
     // いいねボタン
-    @IBAction func likeButtonTaped(_ sender: Any) {
-
-        UIView.animate(withDuration: 0.5, animations: {
-            self.resetCard()
-            self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x + 500, y:self.personList[self.selectedCardCount].center.y)
+    @IBAction func likedButtonTapped(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.5, animations: {
+        // X座標を左に500とばす(500)
+        self.skipCard(distance: 500)
         })
         // いいねリストに追加
-        likedName.append(nameList[selectedCardCount])
-        selectedCardCount += 1
-        // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        likedName.append(userList[nowUserNum].name)
+        // 連打の防止
+        sender.isEnabled = false
+        // 0.2秒後に次のカードを表示
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            // 次の画面を表示
+            self.nextPersonList()
+            sender.isEnabled = true
+        })
     }
 }
 
