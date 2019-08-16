@@ -72,17 +72,17 @@ class ViewController: UIViewController {
         }
     }
     
-    // user1の情報をそれぞれ入れる
+    // 1枚目に情報をそれぞれ入れる
     func user1 (num: Int) {
         let user = userList[num]
-        person1.backgroundColor = user.backColor
-        person1Img.image = user.image
-        person1NameLabel.text = user.name
-        person1JobLabel.text = user.job
-        person1BirthLabel.text = user.birth
+        person1.backgroundColor = user.backColor        // 背景の色
+        person1Img.image = user.image                   // イメージ
+        person1NameLabel.text = user.name               // 名前
+        person1JobLabel.text = user.job                 // 職業
+        person1BirthLabel.text = user.birth             // 出身地
     }
     
-    // user2の情報をそれぞれ入れる
+    // ２枚目に情報をそれぞれ入れる
     func user2 (num: Int) {
         let user = userList[num]
         person2.backgroundColor = user.backColor
@@ -91,6 +91,7 @@ class ViewController: UIViewController {
         person2JobLabel.text = user.job
         person2BirthLabel.text = user.birth
     }
+    
     // 完全に遷移が行われ、スクリーン上からViewControllerが表示されなくなったときに呼ばれる
     override func viewDidDisappear(_ animated: Bool) {
         // カウント初期化
@@ -135,8 +136,9 @@ class ViewController: UIViewController {
         // 中心に持ってくいる
         personList[selectedCardCount].center = centerOfCard
         personList[selectedCardCount].transform = .identity
-        // 3枚目以降に新しいデータを入れていく
+        // 5枚目でないとき
         if nextUserNum < userList.count {
+            // 3枚目以降に新しいデータを入れていく
             selectCard()
         }else {
             // 板垣退助を隠す
@@ -145,6 +147,7 @@ class ViewController: UIViewController {
         // 次のカードへ行く
         nowUserNum += 1
         nextUserNum += 1
+        // 全部見終わったとき
         if nowUserNum >= userList.count {
             // すべて終わったときに画面を真っ白にする
             person1.alpha = 0
@@ -164,6 +167,7 @@ class ViewController: UIViewController {
             user2(num: nextUserNum)
         }
     }
+    
     // スワイプ処理
     @IBAction func swipeCard(_ sender: UIPanGestureRecognizer) {
         // ベースカード
@@ -219,7 +223,6 @@ class ViewController: UIViewController {
                 likedName.append(userList[nowUserNum].name)
                 // 次のカードへ
                 nextPersonList()
-                
             } else {
                 // アニメーションをつける
                 UIView.animate(withDuration: 0.5, animations: {
