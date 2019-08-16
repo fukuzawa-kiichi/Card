@@ -161,6 +161,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="f2Z-fc-kcy"/>
                     <connections>
+                        <outlet property="baseCard" destination="LIf-ov-RRl" id="nO0-bf-ztp"/>
+                        <outlet property="likeImage" destination="zJe-NG-Eq5" id="aYK-k7-moH"/>
                         <outlet property="person1" destination="Vm3-S0-tL6" id="g4o-Ga-B2P"/>
                         <outlet property="person2" destination="LCY-e7-azs" id="l0R-gz-5gE"/>
                     </connections>

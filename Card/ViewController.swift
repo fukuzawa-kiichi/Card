@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     // viewの動作をコントロールする
+    @IBOutlet weak var baseCard: UIView!
     // スワイプ中にgood or bad の表示
+    @IBOutlet weak var likeImage: UIImageView!
     // ユーザーカード1
     @IBOutlet weak var person1: UIView!
     // ユーザーカード2
@@ -21,13 +23,22 @@ class ViewController: UIViewController {
     var centerOfCard: CGPoint!
     // ユーザーカードの配列
     var personList: [UIView] = []
-    // 選択されたカードの数
+    // 1枚目と２枚目のどっちに入れるか
     var selectedCardCount: Int = 0
+    // 次に表示されてる人のリストの番目
+    var nextUserNum:Int = 2
+    // 現在表示されている人のリストの番号
+    var nowUserNum:Int = 0
     // ユーザーリスト
-    let nameList: [String] = ["津田梅子","ジョージワシントン","ガリレオガリレイ","板垣退助","ジョン万次郎"]
+    let userList: [userData] = [
+        userData(name: "津田梅子", image: #imageLiteral(resourceName: "津田梅子"), job: "教師", birth: "千葉", backColor: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)),
+        userData(name: "ジョージ・ワシントン", image: #imageLiteral(resourceName: "ジョージワシントン"), job: "大統領", birth: "アメリカ", backColor: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)),
+        userData(name: "ガリレオ・ガリレイ", image: #imageLiteral(resourceName: "ガリレオガリレイ"), job: "物理学者", birth: "イタリア", backColor: #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)),
+        userData(name: "板垣退助", image: #imageLiteral(resourceName: "板垣退助"), job: "議員", birth: "高知", backColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)),
+        userData(name: "ジョン万次郎", image: #imageLiteral(resourceName: "ジョン万次郎"), job: "冒険家", birth: "アメリカ", backColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)),
+    ]
     // 「いいね」をされた名前の配列
     var likedName: [String] = []
-
 
     // viewのレイアウト処理が完了した時に呼ばれる
     override func viewDidLayoutSubviews() {
@@ -38,28 +49,17 @@ class ViewController: UIViewController {
     // ロード完了時に呼ばれる
     override func viewDidLoad() {
         super.viewDidLoad()
-        // personListにperson1から5を追加
+        // personListにperson1、2を追加
         personList.append(person1)
         personList.append(person2)
-        personList.append(person3)
-        personList.append(person4)
-        personList.append(person5)
-    }
-
-    // view表示前に呼ばれる（遷移すると戻ってくる度によばれる）
-    override func viewWillAppear(_ animated: Bool) {
-        // カウント初期化
-        selectedCardCount = 0
-        // リスト初期化
-        likedName = []
     }
 
     // セグエによる遷移前に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "ToLikedList" {
             let vc = segue.destination as! LikedListTableViewController
-
+            
             // LikedListTableViewControllerのlikedName(左)にViewCountrollewのLikedName(右)を代入
             vc.likedName = likedName
         }
@@ -67,9 +67,35 @@ class ViewController: UIViewController {
 
     // 完全に遷移が行われ、スクリーン上からViewControllerが表示されなくなったときに呼ばれる
     override func viewDidDisappear(_ animated: Bool) {
-        // ユーザーカードを元に戻す
-        resetPersonList()
+        // カウント初期化
+        selectedCardCount = 0
+        nextUserNum = 2
+        nowUserNum = 0
+        // リスト初期化
+        likedName = []
+        
+        // ビューを整理
+        self.view.sendSubviewToBack(person2)
+        // alpha地をもとに戻す
+        person1.alpha = 1
+        person2.alpha = 1
+        // ビューの初期化
+        // 1枚目
+        let user1 = userList[nowUserNum]
+        person1.backgroundColor = user1.backColor
+        person1Img.image = user1.image
+        person1NameLabel.text = user1.name
+        person1JobLabel.text = user1.job
+        person1BirthLabel.text = user1.birth
+        // 2枚目
+        let user2 = userList[nowUserNum + 1]
+        person2.backgroundColor = user2.backColor
+        person2Img.image = user2.image
+        person2NameLabel.text = user2.name
+        person2JobLabel.text = user2.job
+        person2BirthLabel.text = user2.birth
     }
+
 
     func resetPersonList() {
         // 5人の飛んで行ったビューを元の位置に戻す
